@@ -1,9 +1,9 @@
-import { Box, Flex } from '@chakra-ui/react';
+import { Box, Flex, useColorModeValue } from '@chakra-ui/react';
 import React from 'react';
 import TopBar from './TopBar';
 
 export default function Layout({ children }) {
-  const bgColor = '#F4F6F6';
+  const bgColor = useColorModeValue('#F4F6F6', '#1a202c');
 
   return (
     <Box bg={bgColor} minH="100vh">

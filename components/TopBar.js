@@ -1,10 +1,12 @@
 import React from 'react';
-import { Flex } from '@chakra-ui/react';
+import { Flex, Box, useColorMode, useColorModeValue } from '@chakra-ui/react';
+import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 
 export default function TopBar() {
-  const bgColor = '#fff';
-  const color = '#1a202c';
-  const borderColor = '#ddd';
+  const bgColor = useColorModeValue('#fff', '#1a202c');
+  const color = useColorModeValue('#1a202c', '#EDEEEE');
+  const borderColor = useColorModeValue('#ddd', '#27272a');
+  const { colorMode, toggleColorMode } = useColorMode();
 
   return (
     <Flex
@@ -24,8 +26,12 @@ export default function TopBar() {
         alignItems="center"
         justifyContent="space-between"
       >
-        <div>asasd</div>
-        <div>asasd222</div>
+        <Box>Delfio Francisco</Box>
+        {colorMode === 'light' ? (
+          <MoonIcon w={6} h={6} cursor="pointer" onClick={toggleColorMode} />
+        ) : (
+          <SunIcon w={6} h={6} cursor="pointer" onClick={toggleColorMode} />
+        )}
       </Flex>
     </Flex>
   );

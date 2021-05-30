@@ -1,7 +1,8 @@
 import React from 'react';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import theme from '@styles/theme';
-import { AuthProvider } from '../contexts/AuthContext';
+// import { AuthProvider } from '../contexts/AuthContext';
+import TecProvider from '../contexts/TecContexts';
 
 import GlobalCss from '../styles/global';
 
@@ -10,10 +11,10 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <ChakraProvider theme={myThema}>
-      <AuthProvider>
+      <TecProvider>
         <GlobalCss />
         <Component {...pageProps} />
-      </AuthProvider>
+      </TecProvider>
     </ChakraProvider>
   );
 }
