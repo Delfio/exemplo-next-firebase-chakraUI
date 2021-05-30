@@ -1,7 +1,7 @@
-import React from 'react';
-import { createContext, useContext } from "react";
-import firebase from "../lib/firebase";
-import { useRouter } from 'next/router'
+import React, { createContext } from 'react';
+
+import { useRouter } from 'next/router';
+import firebase from '../lib/firebase';
 
 const AuthContext = createContext();
 
@@ -23,24 +23,24 @@ export const AuthProvider = ({ children }) => {
         .signInWithPopup(new firebase.auth.GithubAuthProvider())
         .then((res) => {
           setUser(res.user);
-          Router.push("/dashboard");
+          Router.push('/dashboard');
         });
     } finally {
       setLoading(false);
     }
   }, [firebase, Router]);
   const signout = React.useCallback(() => {
-      try{
-        setLoading(true);
-        Router.push('/');
+    try {
+      setLoading(true);
+      Router.push('/');
 
-        return firebase
-            .auth()
-            .signOut()
-            .then(() => setUser(false))
-      } finally {
-        setLoading(false);
-      }
+      return firebase
+        .auth()
+        .signOut()
+        .then(() => setUser(false));
+    } finally {
+      setLoading(false);
+    }
   }, [firebase, Router]);
 
   return (

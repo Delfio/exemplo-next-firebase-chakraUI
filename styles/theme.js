@@ -14,11 +14,11 @@ export default {
       '"Segoe UI Emoji"',
       '"Segoe UI Symbol"',
     ].join(','),
-    heading: 'Georgia, sans-serif',
   },
   fontWeights: {
     normal: 400,
     medium: 600,
     bold: 700,
+    xBold: 900,
   },
 };
